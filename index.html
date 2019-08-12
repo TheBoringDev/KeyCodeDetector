@@ -1,0 +1,27 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Key Code Detector</title>
+  <meta name="description" content="A small project which is built from jQuery and bootstrap, is used for detecting the key code you have pressed.">
+  <meta name="author" content="TheBoringDev">
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" ntegrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script>
+    $(window).on("keydown", function(e){
+        $("#result").text(e.keyCode);
+        $("#eventKey").text(e.key);
+        $("#eventWhich").text(e.which);
+        $("#eventCode").text(e.keyCode);
+    });
+    </script>
+    <p><span>Result:</span><span id="result"></span></p>
+    <p><span>Event.Key:</span><span id="eventKey"></span></p>
+    <p><span>Event.Which:</span><span id="eventWhich"></span></p>
+    <p><span>Event.Code:</span><span id="eventCode"></span></p>    
+</body>
+</html>
