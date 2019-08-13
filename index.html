@@ -1,27 +1,94 @@
-<!doctype html>
+﻿<!doctype html>
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>Key Code Detector</title>
-  <meta name="description" content="A small project which is built from jQuery and bootstrap, is used for detecting the key code you have pressed.">
-  <meta name="author" content="TheBoringDev">
+    <title>Key Code Detector</title>
+    <meta name="description" content="A small project which is built from jQuery and bootstrap, is used for detecting the key code you have pressed.">
+    <meta name="author" content="TheBoringDev">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/theboringdev.keycodedetector.css" />
 </head>
 
 <body>
-    <script src="https://code.jquery.com/jquery-3.4.1.js" ntegrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
-    $(window).on("keydown", function(e){
-        $("#result").text(e.keyCode);
-        $("#eventKey").text(e.key);
-        $("#eventWhich").text(e.which);
-        $("#eventCode").text(e.keyCode);
-    });
+        $(document).ready(function () {
+            $("div.row-info").hide();
+        });
+
+        $(window).on("keydown", function (e) {
+            if (e.keyCode >= 0) {
+                $("div.row-info").show();
+                $("div.row-message").hide();
+            }
+            if (e.keyCode == 32) {
+                $("#eventKey").text("Space");
+            } else {
+                $("#eventKey").text(e.key);
+            }
+            $("#result").text(e.keyCode);            
+            $("#eventWhich").text(e.which);
+            $("#eventCode").text(e.keyCode);
+        });
     </script>
-    <p><span>Result:</span><span id="result"></span></p>
-    <p><span>Event.Key:</span><span id="eventKey"></span></p>
-    <p><span>Event.Which:</span><span id="eventWhich"></span></p>
-    <p><span>Event.Code:</span><span id="eventCode"></span></p>    
+
+    <div class="container">
+        <div class="row row-message" style="height:100%; display:block;">
+            <div class="card text-white bg-secondary mb-3 first-screen text-center">
+                <div class="card-body">
+                    <span>Press your key to get the JS event keycode.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-info" style="height:50%; display:block;">
+            <p id="result" class="text-center"></p>
+        </div>
+
+        <div class="row row-info" style="height:45%;">
+            <div class="col-sm">
+                <div class="card text-white bg-secondary mb-3">
+                    <div class="card-header">
+                        <h5>event.key</h5>
+                    </div>
+                    <div class="card-body">
+                        <p id="eventKey" class="text-center"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-header">
+                        <h5>event.which</h5>
+                    </div>
+                    <div class="card-body">
+                        <p id="eventWhich" class="text-center"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm">
+                <div class="card text-white bg-info mb-3">
+                    <div class="card-header">
+                        <h5>event.code</h5>
+                    </div>
+                    <div class="card-body">
+                        <p id="eventCode" class="text-center"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fixed-bottom">
+            <p class="text-center">This tool was born in the boring time of a developer - Suggest improves this tool on <a href="https://github.com/TheBoringDev/KeyCodeDetector">GitHub</a></p>
+        </div>          
+    </div>
 </body>
 </html>

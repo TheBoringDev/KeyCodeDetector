@@ -1,0 +1,23 @@
+html, body{
+    margin: 0;
+    font-family:Montserrat, sans-serif;
+    color: #424242;
+    overflow: hidden;
+    background: #f2f4f8;
+}
+html, body, .container {
+    height: 100%;
+}
+
+div.card-body > p{
+    font-size: 4em; 
+}
+
+p#result{
+    font-size:20em;
+}
+
+div.first-screen{
+    top: 35%;
+    font-size: 2rem;
+}
