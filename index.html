@@ -20,6 +20,14 @@
     <script>
         $(document).ready(function () {
             $("div.row-info").hide();
+
+            $(function () {
+                $('[data-toggle="popover"]').popover()
+            });
+
+            $('.popover-dismiss').popover({
+                trigger: 'focus'
+            });
         });
 
         $(window).on("keydown", function (e) {
@@ -55,7 +63,20 @@
             <div class="col-sm">
                 <div class="card text-white bg-secondary mb-3">
                     <div class="card-header">
-                        <h5>event.key</h5>
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <h5>event.key</h5>
+                            </div>
+                            <div class="col-sm-2">
+                                <a tabindex="0" 
+                                   class="text-white text-center" 
+                                   role="button" 
+                                   data-toggle="popover" 
+                                   data-trigger="focus" 
+                                   title="event.key" 
+                                   data-content="The key property returns the identifier of the key that was pressed when a key event occured.">[?]</a>
+                            </div>
+                        </div>                        
                     </div>
                     <div class="card-body">
                         <p id="eventKey" class="text-center"></p>
@@ -66,7 +87,20 @@
             <div class="col-sm">
                 <div class="card text-white bg-success mb-3">
                     <div class="card-header">
-                        <h5>event.which</h5>
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <h5>event.which</h5>
+                            </div>
+                            <div class="col-sm-2">
+                                <a tabindex="0" 
+                                   class="text-white text-center" 
+                                   role="button" 
+                                   data-toggle="popover" 
+                                   data-trigger="focus" 
+                                   title="event.which" 
+                                   data-content="The which property returns the Unicode character code of the key that triggered the onkeypress event, or the Unicode key code of the key that triggered the onkeydown or onkeyup event">[?]</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <p id="eventWhich" class="text-center"></p>
@@ -77,7 +111,20 @@
             <div class="col-sm">
                 <div class="card text-white bg-info mb-3">
                     <div class="card-header">
-                        <h5>event.code</h5>
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <h5>event.keyCode</h5>
+                            </div>
+                            <div class="col-sm-2">
+                                <a tabindex="0" 
+                                   class="text-white text-center" 
+                                   role="button" 
+                                   data-toggle="popover" 
+                                   data-trigger="focus" 
+                                   title="event.keyCode" 
+                                   data-content="The keyCode property returns the Unicode character code of the key that triggered the onkeypress event, or the Unicode key code of the key that triggered the onkeydown or onkeyup event.">[?]</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <p id="eventCode" class="text-center"></p>
